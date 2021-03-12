@@ -11,4 +11,6 @@ covid['date']= pd.to_datetime(covid['date'])
 covid['date'] = covid["date"].dt.strftime("%m")
 covid.rename(columns = {"date": "month"}, inplace = True)
 
-print(covid)
+covid["case_fatality_rate"] = covid["total_deaths"]/covid["total_cases"]
+covid=covid[['location','month', 'case_fatality_rate','total_cases','new_cases','total_deaths','new_deaths']]
+print(covid.head(5))
