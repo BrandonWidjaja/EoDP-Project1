@@ -11,6 +11,10 @@ covid['date']= pd.to_datetime(covid['date'])
 covid['date'] = covid["date"].dt.strftime("%m")
 covid.rename(columns = {"date": "month"}, inplace = True)
 
+#add fatality rate column
 covid["case_fatality_rate"] = covid["total_deaths"]/covid["total_cases"]
+#move it to desired column
 covid=covid[['location','month', 'case_fatality_rate','total_cases','new_cases','total_deaths','new_deaths']]
+
+#print the first 5 rows of datastructure
 print(covid.head(5))
