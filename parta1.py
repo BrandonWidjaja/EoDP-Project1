@@ -18,3 +18,5 @@ covid=covid[['location','month', 'case_fatality_rate','total_cases','new_cases',
 
 #print the first 5 rows of datastructure
 print(covid.head(5))
+
+print("test")
