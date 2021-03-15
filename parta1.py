@@ -28,7 +28,7 @@ grouped_covid=grouped_covid[['location','month', 'case_fatality_rate','total_cas
                              'total_deaths','new_deaths']]
 
 #export as CSV
-grouped_covid.to_csv(r'/home/jovyan/ass1/parta1\owid-covid-data-2020-monthly.csv')
+grouped_covid.to_csv('owid-covid-data-2020-monthly.csv')
 
 #print the first 5 rows of datastructure
 print(grouped_covid.head(5))
