@@ -2,6 +2,11 @@
 import pandas as pd
 import argparse
 
+#read in desired output file name from commandline
+parser = argparse.ArgumentParser()
+parser.add_argument('filename')
+args = parser.parse_args()
+
 #read in desired columns from csv file
 covid = pd.read_csv('owid-covid-data.csv',encoding = 'ISO-8859-1')
 covid=covid.loc[:,['location','date','total_cases','new_cases','total_deaths','new_deaths']]
@@ -28,7 +33,7 @@ grouped_covid=grouped_covid[['location','month', 'case_fatality_rate','total_cas
                              'total_deaths','new_deaths']]
 
 #export as CSV
-grouped_covid.to_csv('owid-covid-data-2020-monthly.csv')
+grouped_covid.to_csv(args.filename)
 
 #print the first 5 rows of datastructure
 print(grouped_covid.head(5))
