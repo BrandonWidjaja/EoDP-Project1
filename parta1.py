@@ -32,6 +32,12 @@ grouped_covid["case_fatality_rate"] = grouped_covid["total_deaths"].div(grouped_
 grouped_covid=grouped_covid[['location','month', 'case_fatality_rate','total_cases','new_cases',
                              'total_deaths','new_deaths']]
 
+#remove all rows with any NaN values i.e. no case_fatality_rate entry
+#this will be done by replacing all NaN values with an empty string
+nan_value = float("NaN")
+grouped_covid.replace("", nan_value, inplace=True)
+grouped_covid.dropna(subset = ["case_fatality_rate"], inplace=True)
+
 #export as CSV
 grouped_covid.to_csv(args.filename)
 
