@@ -1,9 +1,16 @@
 import pandas as pd
 import argparse
 import matplotlib.pyplot as plt
-import numpy as np
 
-#create dataframe to be plotted (code slightly modified from parta1.py)
+#-------------------------------------------------------------------------------
+#create dataframe for plot (code copied and slightly modified from parta1.py)
+#-------------------------------------------------------------------------------
+
+#read in desired output file name from commandline
+parser = argparse.ArgumentParser()
+parser.add_argument('filename1')
+parser.add_argument('filename2')
+args = parser.parse_args()
 
 #read in desired columns from csv file
 covid = pd.read_csv('owid-covid-data.csv',encoding = 'ISO-8859-1')
@@ -44,8 +51,10 @@ grouped_covid.replace("", nan_value, inplace = True)
 grouped_covid.dropna(subset = ["case_fatality_rate"], inplace = True)
 
 #-------------------------------------------------------------------------------
+#create the scatterplot from the data generated above
+#-------------------------------------------------------------------------------
 
-
+#assign each continent to their respective rows
 africa = grouped_covid.iloc[10:20, :]
 asia = grouped_covid.iloc[89:101, :]
 australia = grouped_covid.iloc[101:111, :]
@@ -53,6 +62,7 @@ europe = grouped_covid.iloc[549:560, :]
 north_america = grouped_covid.iloc[1176:1187, :]
 south_america = grouped_covid.iloc[1458:1468, :]
 
+#plot all continents with different colours and labels
 plt.scatter(africa.new_cases, africa.case_fatality_rate, color= 'green',
             label="Africa")
 plt.scatter(asia.new_cases, asia.case_fatality_rate, color= 'red',
@@ -66,17 +76,24 @@ plt.scatter(north_america.new_cases, north_america.case_fatality_rate,
 plt.scatter(south_america.new_cases, south_america.case_fatality_rate,
             color= 'blue', label="South America")
 
-plt.ylabel("case fatality rate")
-plt.xlabel("new cases")
-plt.xlim([1, 0.8*10**7])
+#label axis
+plt.xlabel("New Cases")
+plt.ylabel("Case Fatality Rate")
+#define viewing limits for plot (based off min and max values from data)
+plt.xlim([0, 0.8*10**7])
 plt.ylim([0, 0.11])
+#preprocessing
 plt.grid(True)
 plt.legend()
-plt.savefig('scatter-a.png')
-plt.xscale('log')
+#save the first scatterplot named according to first input name
+plt.savefig(args.filename1)
 
+#for the second scatterplot 
+#make x-axis scale logarithmic
+plt.xscale('log')
+#preprocessing
 plt.xlim([10, 10**7])
 plt.ylim([0, 0.11])
-plt.savefig('scatter-b.png')
-
-
+plt.xlabel("New Cases (Logarithmic)")
+#save the second scatterplot named according to second input name
+plt.savefig(args.filename2)

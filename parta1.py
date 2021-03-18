@@ -7,7 +7,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument('filename')
 args = parser.parse_args()
 
-#parta1.1
+#-------------------------------------------------------------------------------
+#parta1.1 Creating the dataframe
+#-------------------------------------------------------------------------------
 
 #read in desired columns from csv file
 covid = pd.read_csv('owid-covid-data.csv',encoding = 'ISO-8859-1')
@@ -28,7 +30,9 @@ grouped_covid = covid.groupby(['location', 'month'], as_index = False).agg({
 #remove headers from .agg
 grouped_covid.columns = grouped_covid.columns.droplevel(1)
 
-#parta1.2
+#-------------------------------------------------------------------------------
+#parta1.2 Adding fatality rate column
+#-------------------------------------------------------------------------------
 
 #add fatality rate column
 grouped_covid["case_fatality_rate"] = grouped_covid["total_deaths"].div(
