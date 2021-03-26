@@ -51,9 +51,9 @@ grouped_covid.replace("", nan_value, inplace = True)
 #remove rows with empty values
 grouped_covid.dropna(subset = ["case_fatality_rate"], inplace = True)
 
-#-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 #create the scatterplot from the data generated above
-#-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 #assign each continent to their respective rows from their indexes in dataframe
 africa = grouped_covid.iloc[10:20, :]
