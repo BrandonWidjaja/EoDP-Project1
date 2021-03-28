@@ -1,5 +1,5 @@
 #------------------------------------------------------------------------------
-#Partb1.py; Brandon Widjaja 1187107
+#Partb2.py; Brandon Widjaja 1187107
 #------------------------------------------------------------------------------
 
 # Part B Task 2
@@ -8,7 +8,7 @@ import os
 import sys
 
 #guard code to stop it from being called when function is imported
-if __name__ == "__main__":
+if __name__ == "__main__" and len(sys.argv)>1:
     #read in folder name and txt file name from stdin
     file= sys.argv[1][-7:]
     folder= sys.argv[1][:-7]
@@ -30,5 +30,5 @@ def preprocess(txt):
     txt = txt.lower()
     return txt
 
-if __name__ == "__main__":
+if __name__ == "__main__" and len(sys.argv)>1:
     print(preprocess(textfile))

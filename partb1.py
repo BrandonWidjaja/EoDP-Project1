@@ -9,10 +9,12 @@ import pandas as pd
 import os
 import argparse
 
-#read in desired output file name from commandline
-parser = argparse.ArgumentParser()
-parser.add_argument('filename')
-args = parser.parse_args()
+#guard code to stop it from being called when variable 'df' is imported
+if __name__ == "__main__":
+    #read in desired output file name from commandline
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filename')
+    args = parser.parse_args()
 
 #create dataframe to store filenames and doc IDs
 df = pd.DataFrame(columns = ['Filename', 'documentID'])
@@ -35,7 +37,8 @@ for filename in os.listdir('cricket'):
         continue
     else:
         continue
-
-#sort dataframe by filename and save as required CSV
-df.sort_values(by=['Filename'], inplace=True)
-df.to_csv(args.filename, index = False)
+        
+if __name__ == "__main__":
+    #sort dataframe by filename and save as required CSV
+    df.sort_values(by=['Filename'], inplace=True)
+    df.to_csv(args.filename, index = False)
