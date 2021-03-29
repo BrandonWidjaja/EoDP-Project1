@@ -19,6 +19,20 @@ owid-covid-2020-visual-analysis.pdf
 An analysis of the scatter plots created in parta2.py
     
 partb1.py
-Finds all document IDs in the .txt files in the "cricket" folder. Document IDs consist of 4 upper-case chars, a "-", 3 integers and optionally another upper-case char.
+Finds all document IDs in the .txt files in the "cricket" folder. Document IDs consist of 4 upper-case chars, a "-", 
+3 integers and optionally another upper-case char.
 Document IDs that are found are stored in the output csv along with their corresponding filenames.
 Program is called by: python partb1.py <FILENAME>
+    
+partb2.py
+Preprocesses the specified document to make searching easier, removing all non-alphabetic characters, 
+converting all spacing characters to single whitespaces and convert all characters to lower case.
+Program is called by: python partb2.py <DIRECTORY/FILENAME>
+    
+partb3.py
+Input between 1-5 words and searches through all .txt files in the cricket folder and returns the document ID of the files that contain all the input words.
+Program is called by: python partb3.py <keyword1> <keyword2> <keyword3> <keyword4> <keyword5>
+    
+partb4.py
+Same as partb3.py, however this program uses the Porter Stemmer so that the search function can also search for related inexact matches.
+Program is called by: python partb3.py <keyword1> <keyword2> <keyword3> <keyword4> <keyword5>
