@@ -20,8 +20,8 @@ if __name__ == "__main__" and len(sys.argv)>1:
     
 #preprocess txt file
 def preprocess(txt):
-    #remove non-alhpabetic characters
-    txt = re.sub(r'[^a-zA-Z\s]','', txt)
+    #replace non-alhpabetic characters with whitespace
+    txt = re.sub(r'[^a-zA-Z\s]',' ', txt)
     #replace tabs and newlines with whitespace
     txt = re.sub(r'[\n\t]',' ', txt)
     #ensure no consecutive whitespaces
