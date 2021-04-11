@@ -27,12 +27,20 @@ Program is called by: python partb1.py <FILENAME>
 partb2.py
 Preprocesses the specified document to make searching easier, removing all non-alphabetic characters, 
 converting all spacing characters to single whitespaces and convert all characters to lower case.
+Requires partb1.py to be in the same directory.
 Program is called by: python partb2.py <DIRECTORY/FILENAME>
     
 partb3.py
 Input between 1-5 words and searches through all .txt files in the cricket folder and returns the document ID of the files that contain all the input words.
+Requires partb1.py and partb2.py to be in the same directory.
 Program is called by: python partb3.py <keyword1> <keyword2> <keyword3> <keyword4> <keyword5>
     
 partb4.py
 Same as partb3.py, however this program uses the Porter Stemmer so that the search function can also search for related inexact matches.
+Requires partb1.py and partb2.py to be in the same directory.
+Program is called by: python partb3.py <keyword1> <keyword2> <keyword3> <keyword4> <keyword5>
+    
+partb5.py
+Returns the cosine similarities of each document matching the keywords, sorted by their score.
+Requires partb1.py and partb2.py to be in the same directory.
 Program is called by: python partb3.py <keyword1> <keyword2> <keyword3> <keyword4> <keyword5>
