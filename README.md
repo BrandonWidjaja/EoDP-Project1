@@ -5,6 +5,11 @@ Student ID: 1187107
 
 # Project descriptions:
 
+Part 1: Wrote python scripts to read and process a CSV containing the locations, month, case fatality rate, total cases, new cases, total deaths, and new deaths for covid-19 in 2020. 
+
+Part 2: Wrote python scripts to preprocess and extract information from a large collection of text files. Wrote a script to implement a search tool which returns the document IDs for each text file which included the specified words. This search script also implements a Porter Stemmer allowing the search to also include related inexact word matches. Also wrote a separate script which returns the cosine similarities of each document matching the keywords.
+
+
 parta1.py
 This program reads the input csv "owid-covid-data.csv" and outputs a csv containing the locations, month, case fatality rate, 
 total cases, new cases, total deaths and new deaths for covid-19 in 2020, all aggregated monthly and sorted by location and month.
